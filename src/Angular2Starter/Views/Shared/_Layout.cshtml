@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <base href="/Admin">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yaceer Administration</title>
+
+    <environment names="Development">
+
+        <link href="~/css/app/site.css" rel="stylesheet" />
+        <script src="/scripts/lib/shim.js"></script>   
+        <script src="~/scripts/lib/zone.js"></script> 
+        <script src="/scripts/lib/Reflect.js"></script>
+        <script src="/scripts/lib/system.src.js"></script>
+        <script src="~/scripts/app/dev/Config/systemjs.config.js"></script>
+        <script>
+            System.import('app/dev/main')
+                  .then(null, console.error.bind(console));
+
+        </script>
+    </environment>
+    <environment names="Staging,Production">
+        <link href="~/css/app/site.min.css" rel="stylesheet" />
+        <script src="/scripts/lib/shim.min.js"></script>
+        <script src="~/scripts/lib/zone.min.js"></script>
+        <script src="/scripts/lib/Reflect.js"></script>
+        <script src="/scripts/lib/system.js"></script>
+        <script src="~/scripts/app/dist/Config/systemjs.config.js"></script>
+        <script>
+            System.import('app/dist/main')
+                  .then(null, console.error.bind(console));
+        </script>
+    </environment>
+</head>
+<body>
+
+
+
+    <div>
+        @RenderBody()
+    </div>
+
+   
+    @RenderSection("scripts", required: false)
+</body>
+</html>

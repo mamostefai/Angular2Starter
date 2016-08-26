@@ -15,7 +15,8 @@ namespace Angular2Starter
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()
-                .UseStartup<Startu 
+                .UseStartup<Startup>()
+                .Build();
 
             host.Run();
         }
